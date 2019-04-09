@@ -1,5 +1,5 @@
 export const state = () =>({
-  memo: [],
+  memo_list: [],
   page: 0,
 })
 
@@ -11,7 +11,7 @@ export const mutations = {
             + d.getDate() * ' '
             + d.getHours() + ':'
             + d.getMinutes();
-    state.memo.unshift({
+    state.memo_list.unshift({
       title: obj.title,
       content: obj.content,
       created: fmt,
@@ -22,13 +22,13 @@ export const mutations = {
   },
   remove(state,obj){
     let num = 0;
-    for(let i = 0; i < state.memo.length; i++){
-      const ob = state.memo[i];
+    for(let i = 0; i < state.memo_list.length; i++){
+      const ob = state.memo_list[i];
       if(ob.title == obj.title
         && ob.content == obj.content
         && ob.created == obj.created){
           alert('remove it! -- ' + ob.title);
-          state.memo.splice(i,1);
+          state.memo_list.splice(i,1);
           return;
         }
     }

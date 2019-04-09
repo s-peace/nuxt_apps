@@ -29,6 +29,8 @@
       </tr>
     </table>
     <hr>
+    {{page}}
+    <hr>
     <ul class="list">
       <li v-for="item in page_items">
         <span @click="select(item)">
@@ -57,12 +59,12 @@ export default {
   },
   computed: {
     memo(){
-      return this.$store.state.memo.memo;
+      return this.$store.state.memo.memo_list;
     },
     page_items(){
       if(this.find_flg){
         let arr = [];
-        let data = this.$store.state.memo.memo;
+        let data = this.$store.state.memo.memo_list;
         data.forEach(element => {
           if(element.title.toLowerCase().indexOf(this.title.toLowerCase()) >= 0){
             arr.push(element);
@@ -72,7 +74,7 @@ export default {
       } else if (this.sel_flg != false){
         return [this.sel_flg];
       } else {
-        return this.$store.state.memo.memo.slice(
+        return this.$store.state.memo.memo_list.slice(
           this.num_per_page * this.$store.state.memo.page,
           this.num_per_page * (this.$store.state.memo.page + 1)
         );
@@ -83,8 +85,8 @@ export default {
         return this.$store.state.memo.page;
       },
       set(p){
-        let pg = p > (this.$store.state.memo.memo.length - 1)/ this.num_per_page?
-                Math.ceil((this.$store.state.memo.memo.length -1)/ this.num_per_page) - 1: p;
+        let pg = p > (this.$store.state.memo.memo_list.length - 1)/ this.num_per_page?
+                Math.ceil((this.$store.state.memo.memo_list.length -1)/ this.num_per_page) - 1: p;
         pg = pg < 0 ? 0 : pg;
         this.$store.commit('memo/set_page',pg);
       } 
