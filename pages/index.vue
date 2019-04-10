@@ -9,8 +9,13 @@
       <a @click.stop="$store.commit('reset')">
         clicked: {{$store.state.counter}}</a>
       </div>
+    <hr>
     <!-- <p>{{$store.state.message}}</p> -->
     <router-link to="/other">go to other</router-link>
+    <hr>
+    <router-link to="/memo">go to memo</router-link>
+    <hr>
+    <router-link to="/axios">go to axios</router-link>
   </section>
 </template>
 

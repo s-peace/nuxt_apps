@@ -43,6 +43,7 @@
       <span @click="prev">&lt;prev</span> |
       <span @click="next">next&gt;</span>
     </div>
+    <router-link to="/">go to top</router-link>
   </section>
 </template>
 
