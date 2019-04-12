@@ -16,6 +16,8 @@
     <router-link to="/memo">go to memo</router-link>
     <hr>
     <router-link to="/axios">go to axios</router-link>
+    <hr>
+    <router-link to="/board">go to board</router-link>
   </section>
 </template>
 
