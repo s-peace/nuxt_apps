@@ -35,14 +35,21 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '~/plugins/axios.js'
   ],
-
+  env: {
+    QIITA_TOKEN: process.env.QIITA_TOKEN
+  },
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios'
   ],
+  axios: {
+
+  },
 
   /*
   ** Build configuration

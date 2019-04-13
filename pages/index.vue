@@ -18,6 +18,10 @@
     <router-link to="/axios">go to axios</router-link>
     <hr>
     <router-link to="/board">go to board</router-link>
+    <hr>
+    <router-link to="/users">go to users</router-link>
+    <hr>
+    <router-link to="/qiita_posts">go to qiita_posts</router-link>
   </section>
 </template>
 
@@ -30,10 +34,12 @@ export default {
       message: 'this is message',
     }
   },
-  // created(){
-  // },
-  // components: {
-  // }
+  async mounted(){
+    console.log(
+      JSON.stringify(await
+        this.$axios.$get('https://qiita.com/api/v2/items?query=tag:nuxt.js',true,' '))
+    )
+  }
 }
 </script>
 
