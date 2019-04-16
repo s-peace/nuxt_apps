@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h3>User ID: {{userId}}</h3>
-    <img src="user.profile_image_url" width="120" alt="">
+    <h3>User ID: {{user.id}}</h3>
+    <img :src="user.profile_image_url" width="120" alt="">
     <p>{{user.description || 'No description'}}</p>
     <p>
       <nuxt-link to="/">
@@ -24,8 +24,9 @@
 <script>
 export default {
   async asyncData({route,app}){
-    const user = await app.$axios.$get('https://qiita.com/api/v2/users/${route.params.id}')
-    const items = await app.$axios.$get('https://qiita.com/api/v2/items?query=user:${route.params.id}')
+    const user = await app.$axios.$get(`https://qiita.com/api/v2/users/${route.params.id}`)
+    const items = 
+      await app.$axios.$get(`https://qiita.com/api/v2/items?query=user:${route.params.id}`)
     return {user,items}
   }
   // data(){
