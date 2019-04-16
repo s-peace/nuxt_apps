@@ -10,8 +10,7 @@
         clicked: {{$store.state.counter}}</a>
       </div>
     <hr>
-    aaa
-    <!-- <p>{{$store.state.message}}</p> -->
+    <p>{{$store.state.message}}</p>
     <router-link to="/other">go to other</router-link>
     <hr>
     <router-link to="/memo">go to memo</router-link>
